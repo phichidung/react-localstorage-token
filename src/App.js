@@ -10,6 +10,28 @@ export default class App extends Component {
         };
     }
 
+    handleChange(event) {
+        this.setState({ text: event.target.value });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+
+        if(!this.state.text.length) {
+            return
+        }
+
+        let obj = { 'text': this.state.text };
+
+        this.setState({
+                items : this.state.items.concat(obj)
+            },
+            () => {
+                localStorage.setItem('todo', JSON.stringify(this.state.items));
+                this.setState({ text: '' })
+            })
+    }
+
     render() {
         return (
             <div>
@@ -27,27 +49,5 @@ export default class App extends Component {
                 </form>
             </div>
         );
-    }
-
-    handleChange(event) {
-        this.setState({ text: event.target.value });
-    }
-
-    handleSubmit(event) {
-        event.preventDefault();
-
-        if(!this.state.text.length) {
-            return
-        }
-
-        let obj = { 'text': this.state.text };
-
-        this.setState({
-            items : this.state.items.concat(obj)
-        },
-        () => {
-            localStorage.setItem('todo', JSON.stringify(this.state.items));
-            this.setState({ text: '' })
-        })
     }
 }
