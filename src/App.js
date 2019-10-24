@@ -49,9 +49,7 @@ export default class App extends Component {
         },
         () => {
             localStorage.setItem('todo', JSON.stringify(this.state.items));
-            this.setState({
-                text : ""
-            })
+            this.setState({ text: "" })
         })
     }
 }
