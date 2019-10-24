@@ -24,12 +24,12 @@ export default class App extends Component {
         let obj = { 'text': this.state.text };
 
         this.setState({
-                items : this.state.items.concat(obj)
-            },
-            () => {
-                localStorage.setItem('todo', JSON.stringify(this.state.items));
-                this.setState({ text: '' })
-            })
+            items : this.state.items.concat(obj)
+        },
+        () => {
+            localStorage.setItem('todo', JSON.stringify(this.state.items));
+            this.setState({ text: '' })
+        })
     }
 
     render() {
