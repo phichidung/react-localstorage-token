@@ -40,9 +40,7 @@ export default class App extends Component {
             return
         }
 
-        let obj = {
-            'text': this.state.text,
-        };
+        let obj = { 'text': this.state.text };
 
         this.setState({
             items : this.state.items.concat(obj)
